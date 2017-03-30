@@ -1,0 +1,65 @@
+body{
+	margin-top:100px;
+	background-color: gray;
+}
+
+
+#login-nav input { margin-bottom: 15px; }
+
+#imaginary_container{
+    margin-top:20px; 
+    margin-bottom: 20px;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+#centrall{
+	
+
+	
+	
+}
+#centrall .nav{
+	background-color: #fff;
+	border: 1px solid #fff;
+	height: 150px;
+	margin: 5px;
+
+}
+#div1{
+	
+	padding-left: 20px;
+	background-color: gray;
+	
+}
+
+#div2{
+	
+	padding-left: 20px;
+	background-color: gray;
+	
+}
+
+#div3{
+	
+	padding-left: 20px;
+	background-color: gray;
+	
+}
+
+#div4{
+	
+	padding-left: 20px;
+	background-color: gray;
+	
+}

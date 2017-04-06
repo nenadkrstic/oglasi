@@ -17,11 +17,7 @@ class CreateCommentsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('name');
-            $table->string('listing');
-            $table->integer('status');
-            $table->string('section');
-            $table->string('img');
+            $table->longText('comment');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

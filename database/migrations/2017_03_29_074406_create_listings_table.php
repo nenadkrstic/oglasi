@@ -17,7 +17,11 @@ class CreateListingsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->longText('comment');
+            $table->string('name');
+            $table->string('listing');
+            $table->integer('status');
+            $table->string('section');
+            $table->string('img');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

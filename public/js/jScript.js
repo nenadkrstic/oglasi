@@ -18,7 +18,11 @@ $().ready(function(){
           'margin': 5,
            }, 1000);
     });
-	
+
+$("#upload").dropzone({ url: "saveListing" });
+
+   
+
 });
 
 function register(){
@@ -32,6 +36,7 @@ function register(){
 				
 				
 }
+
 
 /*function login(){
     var pass = $('#pass').val();
@@ -52,3 +57,16 @@ function register(){
 	});
 	return false;
 }*/
+
+  //--------------------------------------------------------
+Dropzone.options.myAwesomeDropzone = {
+  paramName: "file", // The name that will be used to transfer the file
+  maxFilesize: 2, // MB
+  accept: function(file, done) {
+    if (file.name == "justinbieber.jpg") {
+      done("Naha, you don't.");
+    }
+    else { done(); }
+  }
+};
+//--------------------------------------------------------

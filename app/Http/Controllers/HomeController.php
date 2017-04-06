@@ -28,15 +28,5 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function registracija()
-    {
-        return view('registracija');
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-        Session::flash('msg','Hvala na poseti');
-        return redirect('home');
-    }
+   
 }

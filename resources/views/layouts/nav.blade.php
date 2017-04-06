@@ -28,9 +28,10 @@
                  
                   
                       @if(Auth::check())
-                       <li><a href="{{url('logout')}}">Izloguj se</a></li>
-                       @elseif(!Auth::check())
-                        <li><a href="{{url('register')}}">Registruj se</a></li>
+                             <li><a href="{{url('makeListing')}}">Postavi oglas</a></li>
+                             <li><a href="{{url('logout')}}">Izloguj se</a></li>
+                      @elseif(!Auth::check())
+                             <li><a href="{{url('register')}}">Registruj se</a></li>
                        
                  
                   <li class="dropdown">

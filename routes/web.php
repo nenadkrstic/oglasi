@@ -19,5 +19,10 @@ Route::get('/nekretnine','PageController@nekretnine');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/registracija', 'HomeController@registracija');
-Route::get('/logout', 'HomeController@logout');
+Route::get('/registracija', 'PageController@registracija');
+Route::get('/logout', 'PageController@logout');
+//midleware
+Route::get('/makeListing', 'PageController@makeListing');
+Route::get('/makeListing1', 'PageController@makeListing1');
+Route::post('fileUpload','PageController@fileUpload');
+Route::post('/saveListing', 'PageController@saveListing');

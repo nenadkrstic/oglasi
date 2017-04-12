@@ -4,6 +4,9 @@ $().ready(function(){
         e.stopPropagation();
     });
 
+    
+    $("#welcome").toggle(10000);
+
     $('#nekretnine,#posao').mouseenter(function(){
          $(this).animate({ 
           'padding-top': 30,
@@ -19,12 +22,32 @@ $().ready(function(){
            }, 1000);
     });
 
-$("#upload").dropzone({ url: "saveListing" });
+ 
+
+   //On scroll load listings Ajax
+ 
+
 
    
 
 });
 
+ function loadListings(){
+   $.ajax({
+      type:'GET',
+      url:'getlastListings',
+      success:function(data){
+         jQuery.each(data, function(key, value){
+        
+            $('#getLastListings').append('<div class="col-md-8"><img src="../public/uploads/2/img1..jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.naziv +'</h3>' 
+              + '<h4>Oglas:'+ value.oglas +'</h4>'
+              + '<h4>Cena:'+value.cena+'</h4><hr></div>');
+         });
+      }
+
+   });
+ }
+ setTimeout(loadListings,100)
 function register(){
 	
 				$("#myModal").modal();
@@ -59,14 +82,15 @@ function register(){
 }*/
 
   //--------------------------------------------------------
-Dropzone.options.myAwesomeDropzone = {
-  paramName: "file", // The name that will be used to transfer the file
-  maxFilesize: 2, // MB
-  accept: function(file, done) {
-    if (file.name == "justinbieber.jpg") {
-      done("Naha, you don't.");
-    }
-    else { done(); }
-  }
-};
+Dropzone.autoDiscover = true;
+
+var myDropzone = new Dropzone(element, {
+                          
+  autoProcessQueue: false,
+});
+
+$('#imgsubbutt').click(function(){           
+  myDropzone.processQueue();
+});
 //--------------------------------------------------------
+

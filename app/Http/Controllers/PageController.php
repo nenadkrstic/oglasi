@@ -4,7 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Input;
-use App\Validator;
+use App\Http\Requests\listingRequest;
+//use App\Validator;
+use Auth;
+use Session;
+use Image;
+use File;
+use App\Listings;
+use DB;
 class PageController extends Controller
 {
     public function home()
@@ -27,51 +34,73 @@ class PageController extends Controller
     {
         Auth::logout();
         Session::flash('msg','Hvala na poseti');
-        return redirect('home');
+        return redirect('/');
     }
 
+    //Create listing 
     public function makeListing()
     {
         return view('listing.makeListing');
     }
-
-     public function makeListing1()
+    
+    //test
+    public function makeListing1(Request $request)
     {
-        return view('listing.makeListing1');
+        $file = $request->all();
+        print_r($file);
     }
 
-    public function fileUpload(){
+    
 
-       $input = Input::all();
-        $rules = array(
-            'file' => 'image|max:3000',
-        );
+    public function saveListing(listingRequest $request)
+    {
 
-        $validation = Validator::make($input, $rules);
+     
+        /*
+        /*Save data into db, table listings
+        */
+        $userId = Auth::user()->id;
+        $list = $request->all();
+        
+        $list['user_id'] = Auth::user()->id;
+        $list['status'] = 1;
+        Listings::create($list);
+       /*
+       /*check if image was sent
+       */
+       if($request->hasFile('img')){     
+            $img = $request->file('img');
+            $id = Listings::all()->last()->id;
+            $list = $request->all();
+                
+                
+            File::makeDirectory('../public/uploads/list-id-'.$id);
+                 
+            $count = 0;
+            foreach ($img as $i) {
+               $count++;
+               // save multiple images in file
+               $file = '.' . $i->getClientOriginalExtension();
+               Image::make($i)->resize('400', '400')->save('../public/uploads/list-id-'.$id.'/img'.$count.'.'.$file);
 
-        if ($validation->fails())
-        {
-            return Response::make($validation->errors->first(), 400);
-        }
+             }  
 
-        $file = Input::file('file');
+       }
 
-        $extension = File::extension($file['name']);
-        $directory = path('public').'uploads/'.sha1(time());
-        $filename = sha1(time().time()).".{$extension}";
+        
 
-        $upload_success = Input::upload('file', $directory, $filename);
+       //  News::create($createNews);
 
-        if( $upload_success ) {
-            return Response::json('success', 200);
-        } else {
-            return Response::json('error', 400);
-        }
+         \Session::flash('img', 'Oglas uspešno objavljen!');
+
+         return redirect()->back();
+      
+
     }
 
-    public function saveListing(Request $request)
+    public function getLastListings()
     {
-         $all = $request->All();
-         return $all;
+        $listings = DB::table('listings')->select('cena','naziv','oglas')->get();
+        return json_decode($listings);
     }
 }

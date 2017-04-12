@@ -1,10 +1,9 @@
-<div class="container">
-   <div class="row">
-      @if(Session::has('msg'))
-        <p>{{Session::get('msg')}}</p>
-      @endif
 
-      <div class="col-md-12">
+
+   <div class="container-fluid">
+     
+
+      <div class="row">
          <nav class="navbar navbar-default" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -19,17 +18,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav">
-                  <li class="active"><a href="{{url('/')}}">Home</a></li>
+                @if(Auth::check())  
+                  <li><a href="{{url('makeListing')}}">Postavi oglas</a></li>
+                  <li><a href="{{url('userListing')}}">Moji oglasi</a></li>
                   
-                 
+                @endif
                </ul>
               
                <ul class="nav navbar-nav navbar-right">
                  
                   
                       @if(Auth::check())
-                             <li><a href="{{url('makeListing')}}">Postavi oglas</a></li>
-                             <li><a href="{{url('logout')}}">Izloguj se</a></li>
+                             
+                                                          <li><a href="{{url('logout')}}">Izloguj se</a></li>
                       @elseif(!Auth::check())
                              <li><a href="{{url('register')}}">Registruj se</a></li>
                        
@@ -40,11 +41,11 @@
                         <li>
                            <div class="row">
                               <div class="col-md-12">
-                                 <form class="form" role="form" method="post" action={{ url('/login') }} accept-charset="UTF-8" id="login-nav">
+                                 <form class="form" role="form" method="POST" action="{{ url('/login') }}" accept-charset="UTF-8" id="login-nav">
                                     {{csrf_field()}}
                                     <div class="form-group">
                                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                       <input type="email" name="mail" id="mail" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                       <input type="email" name="email" id="mail" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
                                     </div>
                                     <div class="form-group">
                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
@@ -56,7 +57,7 @@
                                        </label>
                                     </div>
                                     <div class="form-group">
-                                       <button type="submit" class="btn btn-success btn-block" >Sign in</button>
+                                       <input type="submit" class="btn btn-primary btn-block"  value="Login">
                                     </div>
                                  </form>
                               </div>
@@ -73,4 +74,5 @@
          </nav>
       </div>
    </div>
-</div>
+
+

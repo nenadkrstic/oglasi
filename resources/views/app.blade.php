@@ -28,13 +28,22 @@
        <!-- <script src="../public/js/dropzone.js"></script>-->
     </head>
     <body>
+          <div class="col-md-3">
+            <div class="sidebar-nav-fixed affix">
+               <iframe src="http://kursna-lista.com/gedzeti/gadget1black.php" frameborder="0" height="200" scrolling="no" width="110"></iframe>
+            </div>
+            <!--/sidebar-nav-fixed -->
+       </div>
+
+           
+       
         <div class="container">
              @include('layouts.nav')
              @yield('content')
-             @include('layouts.footer')
+             
 
         </div>
-        
+        @include('layouts.footer')
     </body>
 </html>
 

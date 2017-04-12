@@ -21,8 +21,8 @@ class RedirectIfAuthenticated
 
 
         if (Auth::guard($guard)->check()) {
-            \Session::flesh('msg','Dobrodosli!!!');
-            return redirect('/home');
+            Session::flash('msg','Dobrodosli!!!');
+            return redirect('/');
         }
 
         return $next($request);

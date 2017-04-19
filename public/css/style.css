@@ -24,11 +24,23 @@ body{
     background:transparent;
 }
 
-#centrall{
+#getLastListings{
 	
+}
+#ajaxListing{
+	min-height: 400px;
+}
 
+#centrall .text-center  {
+	 
+   color:red;
+   text-decoration: none;
 	
 	
+}
+
+#centrall a{
+	text-decoration: none;
 }
 #centrall .nav{
 	background-color: #fff;

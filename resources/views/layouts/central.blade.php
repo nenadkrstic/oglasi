@@ -5,39 +5,39 @@
    <div id="centrall" class="container">
    
     <div id="div1" class="row">             
-        <a href="{{url('nekretnine')}}"> <div id="nekretnine" class="col-md-3 nav">
-            <h2>Nekretnine</h2>
+        <a href="{{url('nekretnine')}}"> <div id="nekretnine" class="col-md-3 nav text-center">
+            <h2 >Nekretnine</h2>
          </div></a>
 
-        <a href=""> <div id="posao" class="col-md-2 nav">
+        <a href=""> <div id="posao" class="col-md-2 nav text-center">
             <h2>Posao</h2>
          </div></a>
 
-         <a href=""><div class="col-md-3 nav">
+         <a href=""><div id="pAuto"class="col-md-3 nav text-center">
             <h2>Polovni automobili</h2>
          </div></a>
 
-         <a href=""><div class="col-md-3 nav">
-            <h2>Polovni automobili</h2>
+         <a href=""><div id="racunari" class="col-md-3 nav text-center">
+            <h2>Računari</h2>
          </div></a>
      </div>
 
 
 <div id="div2" class="row">
-     <a href=""><div class="col-md-4 nav">
-        <h2>Računari</h2>
+     <a href=""><div class="col-md-4 nav text-center">
+        <h2>Mobilni telefoni</h2>
      </div></a>
 
-     <a href=""><div class="col-md-2 nav">
-        <h2>Telefoni</h2>
-     </div></a>
-
-     <a href=""><div class="col-md-3 nav">
-        <h2>Električni aparati</h2>
-     </div></a>
-
-      <a href=""><div class="col-md-2 nav">
+     <a href=""><div class="col-md-2 nav text-center">
         <h2>Tv i audio aparati</h2>
+     </div></a>
+
+     <a href=""><div class="col-md-3 nav text-center">
+        <h2>Mašine i alati</h2>
+     </div></a>
+
+      <a href=""><div class="col-md-2 nav text-center">
+        <h2>Elektricni aparati</h2>
      </div></a>
 
     
@@ -47,39 +47,39 @@
 
 <div id="div3" class="row">
     
-    <a href=""><div class="col-md-3 nav">
+    <a href=""><div class="col-md-3 nav text-center">
         <h2>Nameštaj</h2>
      </div></a>
 
-     <a href=""><div class="col-md-2 nav">
+     <a href=""><div class="col-md-2 nav text-center">
         <h2>Igračke</h2>
      </div></a>
 
-     <a href=""><div class="col-md-2 nav">
+     <a href=""><div class="col-md-2 nav text-center">
         <h2>Odeća i obuća</h2>
      </div></a>
 
-     <a href=""><div class="col-md-4 nav">
-        <h2>Odeća i obuća</h2>
+     <a href=""><div class="col-md-4 nav text-center">
+        <h2>Kućni ljubimci</h2>
      </div></a>
       
  </div>
 
     <div id="div4" class="row">
 
-         <a href=""><div class="col-md-2 nav">
-            <h2>Kućni ljubimci</h2>
+         <a href=""><div class="col-md-2 nav text-center">
+            <h2>Muzika</h2>
          </div></a>
 
-         <a href=""><div class="col-md-4 nav">
+         <a href=""><div class="col-md-4 nav text-center">
             <h2>Sport i rekreacija</h2>
          </div></a>
 
-         <a href=""><div class="col-md-2 nav">
-            <h2>Nekretnine</h2>
+         <a href=""><div class="col-md-2 nav text-center">
+            <h2>Za decu</h2>
          </div></a>
-         <a href=""><div class="col-md-3 nav">
-            <h2>Nekretnine</h2>
+         <a href=""><div class="col-md-3 nav text-center">
+            <h2>Nega lica i tela</h2>
          </div></a>
 
     </div>
@@ -103,8 +103,8 @@
                         </div>
                       </div>
                     </div>
-                </div><hr>
+                </div><br>
 
 
 
-                <div id="getLastListings"></div>
+                <div id="getLastListings" class="text-center"><h2>Najnoviji oglasi</h2><hr></div>

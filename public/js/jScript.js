@@ -7,19 +7,20 @@ $().ready(function(){
     
     $("#welcome").toggle(10000);
 
-    $('#nekretnine,#posao').mouseenter(function(){
+    $('#nekretnine,#posao,#pAuto,#racunari').mouseenter(function(){
          $(this).animate({ 
           'padding-top': 30,
-          'padding-left': 40,
+          'padding-left': 0,
           'opacity': 0.5,
           'margin': 0,
-           }, 1000);
+          'margin-right': 10,
+           }, 500);
     }).mouseleave(function(){
          $(this).animate({ 
           'padding': 0,
           'opacity': 1,
           'margin': 5,
-           }, 1000);
+           }, 500);
     });
 
  
@@ -39,9 +40,9 @@ $().ready(function(){
       success:function(data){
          jQuery.each(data, function(key, value){
         
-            $('#getLastListings').append('<div class="col-md-8"><img src="../public/uploads/2/img1..jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.naziv +'</h3>' 
+            $('#getLastListings').append('<div id="ajaxListing" class="col-md-3"><img src="../public/uploads/2/img1..jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.naziv +'</h3>' 
               + '<h4>Oglas:'+ value.oglas +'</h4>'
-              + '<h4>Cena:'+value.cena+'</h4><hr></div>');
+              + '<h4>Cena:'+value.cena+ '. ' +value.valuta+ '</h4><hr></div>');
          });
       }
 
@@ -81,16 +82,4 @@ function register(){
 	return false;
 }*/
 
-  //--------------------------------------------------------
-Dropzone.autoDiscover = true;
-
-var myDropzone = new Dropzone(element, {
-                          
-  autoProcessQueue: false,
-});
-
-$('#imgsubbutt').click(function(){           
-  myDropzone.processQueue();
-});
-//--------------------------------------------------------
 

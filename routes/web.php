@@ -10,6 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Middleware group for admin 
+Route::group(['middleware' => ['admin']], function () {
+    //
+});
+
+//Middleware group Auth User
+Route::group(['middleware' => ['authUser']], function () {
+    Route::get('/makeListing', 'PageController@makeListing');
+    Route::post('saveListing', 'PageController@saveListing');
+    Route::post('fileUpload','PageController@fileUpload');
+    Route::post('myListings','PageController@myListings');
+
+});
 
 Route::get('/','PageController@home');
 Route::get('/getlastListings','PageController@getlastListings');
@@ -28,7 +41,7 @@ Route::get('/logout', 'PageController@logout');
 
 
 
-Route::get('/makeListing', 'PageController@makeListing');
-Route::post('/makeListing1', 'PageController@makeListing1');
-Route::post('fileUpload','PageController@fileUpload');
-Route::post('/saveListing', 'PageController@saveListing');
+
+//Route::post('/makeListing1', 'PageController@makeListing1');
+
+

@@ -8,12 +8,15 @@ class Listings extends Model
 {
     protected $fillable = [
        'user_id',
-       'kategorija',
-       'grupa',
-       'stanje',
-       'cena',
-       'naziv',
-       'oglas',
+       'kategory',
+       'condition',
+       'price',
+       'value',
+       'name',
+       'listing',
+       'phone',
+       'possibility';
+       'deal',
        'status',
        
     ];

@@ -43,15 +43,6 @@ class PageController extends Controller
         return view('listing.makeListing');
     }
     
-    //test
-    public function makeListing1(Request $request)
-    {
-        $file = $request->all();
-        print_r($file);
-    }
-
-    
-
     public function saveListing(listingRequest $request)
     {
 
@@ -60,7 +51,7 @@ class PageController extends Controller
         /*Save data into db, table listings
         */
         $userId = Auth::user()->id;
-        $list = $request->all();
+       $list = $request->all();
         
         $list['user_id'] = Auth::user()->id;
         $list['status'] = 1;
@@ -79,6 +70,7 @@ class PageController extends Controller
             $count = 0;
             foreach ($img as $i) {
                $count++;
+               
                // save multiple images in file
                $file = '.' . $i->getClientOriginalExtension();
                Image::make($i)->resize('400', '400')->save('../public/uploads/list-id-'.$id.'/img'.$count.'.'.$file);
@@ -100,7 +92,7 @@ class PageController extends Controller
 
     public function getLastListings()
     {
-        $listings = DB::table('listings')->select('cena','naziv','oglas')->get();
+        $listings = Listings::select('id','cena','naziv','oglas','valuta')->orderBy('id','desc')->limit(12)->get();
         return json_decode($listings);
     }
 }

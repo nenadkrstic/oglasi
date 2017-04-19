@@ -26,11 +26,12 @@ class listingRequest extends FormRequest
         return [
            
            'kategorija'=>'required',
-           'grupa'=>'required',
            'stanje'=>'required',
            'cena'=>'required|integer',
+           'valuta'=>'required',
            'naziv'=>'required',
            'oglas'=>'required',
+           'telefon'=>'required',
           // 'status'=>'required',
            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];

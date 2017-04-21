@@ -20,14 +20,15 @@ Route::group(['middleware' => ['authUser']], function () {
     Route::get('/makeListing', 'PageController@makeListing');
     Route::post('saveListing', 'PageController@saveListing');
     Route::post('fileUpload','PageController@fileUpload');
-    Route::post('myListings','PageController@myListings');
+    Route::get('userListing','PageController@userListing');
 
 });
 
 Route::get('/','PageController@home');
 Route::get('/getlastListings','PageController@getlastListings');
 Route::get('/home','PageController@home');
-Route::get('/nekretnine','PageController@nekretnine');
+Route::get('/nekretnine','ListingViewsController@nekretnine');
+Route::get('singleListing/{id}','ListingViewsController@singleListing');
 
 Auth::routes();
 

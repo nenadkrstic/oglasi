@@ -8,16 +8,22 @@ class Listings extends Model
 {
     protected $fillable = [
        'user_id',
-       'kategory',
-       'condition',
+       'category',
+       'cond',
        'price',
-       'value',
+       'currency',
        'name',
        'listing',
        'phone',
-       'possibility';
+       'possibility',
        'deal',
        'status',
        
     ];
+
+
+    public function userToListing()
+    {
+      return $this->belongsTo('Users','id');
+    }
 }

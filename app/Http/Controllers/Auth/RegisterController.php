@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'num' => $data['num'],
             'city' => $data['city'],
             'email' => $data['email'],
+            'phone'=>$data['phone'],
             'password' => bcrypt($data['password']),
             'status' => '1',
             'visitor'=>Request::ip(),

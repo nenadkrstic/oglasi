@@ -22,6 +22,7 @@ class User extends Authenticatable
         'num',
         'city',
         'email',
+        'phone',
         'password',
         'status',
         'visitor',
@@ -35,4 +36,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function listingToUser()
+    {
+        return $this->hasMany('App\Listings');
+    }
 }

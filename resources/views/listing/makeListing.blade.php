@@ -53,7 +53,7 @@
      <div class="col-md-5">
 		<h4 for="stanje" >Stanje</h4>
 			<div class="col-md-12 ">
-			  {{ Form::select('condition', [
+			  {{ Form::select('cond', [
 			   'novo' => 'Novo',
 			   'kaonovo' => 'Kao novo',
 			   'polovno' => 'Polovno',
@@ -74,10 +74,10 @@
 			<div class="col-md-12 ">
 
 				<label class="radio-inline">
-			      <input type="radio" name="valuta" value="Rsd">Rsd
+			      <input type="radio" name="currency" value="Rsd">Rsd
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="valuta" value="Euro">Euro
+			      <input type="radio" name="currency" value="Euro">Euro
 			    </label>
 			  
 			 </div>

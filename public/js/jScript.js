@@ -40,9 +40,8 @@ $().ready(function(){
       success:function(data){
          jQuery.each(data, function(key, value){
         
-            $('#getLastListings').append('<div id="ajaxListing" class="col-md-3"><img src="../public/uploads/2/img1..jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.naziv +'</h3>' 
-              + '<h4>Oglas:'+ value.oglas +'</h4>'
-              + '<h4>Cena:'+value.cena+ '. ' +value.valuta+ '</h4><hr></div>');
+            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/2/img1..jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>' 
+              +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
          });
       }
 

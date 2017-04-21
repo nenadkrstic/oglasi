@@ -25,13 +25,15 @@ class listingRequest extends FormRequest
     {
         return [
            
-           'kategorija'=>'required',
-           'stanje'=>'required',
-           'cena'=>'required|integer',
-           'valuta'=>'required',
-           'naziv'=>'required',
-           'oglas'=>'required',
-           'telefon'=>'required',
+           'category'=>'required',
+           'cond'=>'required',
+           'price'=>'required|integer',
+           'currency'=>'required',
+           'name'=>'required',
+           'listing'=>'required',
+           'phone'=>'required',
+           'possibility'=>'required',
+           'deal'=>'required',
           // 'status'=>'required',
            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];

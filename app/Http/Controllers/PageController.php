@@ -12,6 +12,8 @@ use Image;
 use File;
 use App\Listings;
 use DB;
+use App\User;
+
 class PageController extends Controller
 {
     public function home()
@@ -19,10 +21,7 @@ class PageController extends Controller
        return view('home');
     }
 
-    public function nekretnine()
-    {
-    	return view('listing.nekretnine');
-    }
+   
 
      public function registracija()
     {
@@ -92,7 +91,18 @@ class PageController extends Controller
 
     public function getLastListings()
     {
-        $listings = Listings::select('id','cena','naziv','oglas','valuta')->orderBy('id','desc')->limit(12)->get();
+        $listings = Listings::select('id','price','name','listing','currency')->orderBy('id','desc')->limit(12)->get();
         return json_decode($listings);
     }
+
+    public function userListing()
+    {
+       $user = Auth::user()->ListingToUser;
+
+      return view('listing.authUserListings', compact('user'));
+
+      
+    }
+
+    
 }

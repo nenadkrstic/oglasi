@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 use App\Input;
 use App\Http\Requests\listingRequest;
 //use App\Validator;
@@ -13,7 +14,7 @@ use File;
 use App\Listings;
 use DB;
 use App\User;
-
+use App\Images;
 class PageController extends Controller
 {
     public function home()
@@ -41,29 +42,36 @@ class PageController extends Controller
     {
         return view('listing.makeListing');
     }
-    
-    public function saveListing(listingRequest $request)
-    {
 
-     
+    protected function insertDataListing(listingRequest $request)
+    {
         /*
         /*Save data into db, table listings
         */
         $userId = Auth::user()->id;
-       $list = $request->all();
+        $list = $request->all();
         
         $list['user_id'] = Auth::user()->id;
         $list['status'] = 1;
         Listings::create($list);
+
+    }
+    
+    public function saveListing(listingRequest $request)
+    {
+       //Call method  insertDataListing     
+       $this->insertDataListing( $request);
+     
+        
        /*
-       /*check if image was sent
+       /*check if array with image was sent
        */
        if($request->hasFile('img')){     
             $img = $request->file('img');
             $id = Listings::all()->last()->id;
             $list = $request->all();
                 
-                
+             //Create directory for new listing and put uploaded images from array at same dir.  
             File::makeDirectory('../public/uploads/list-id-'.$id);
                  
             $count = 0;
@@ -73,28 +81,37 @@ class PageController extends Controller
                // save multiple images in file
                $file = '.' . $i->getClientOriginalExtension();
                Image::make($i)->resize('400', '400')->save('../public/uploads/list-id-'.$id.'/img'.$count.'.'.$file);
+               
+                /*
+                *Create 
+                */
+                $image['listing_id'] = $id;
+                $image['image'] = 'img.'.$count.''.$file; 
+               
+                Images::create($image);
 
              }  
 
        }
 
-        
+        Session::flash('img', 'Oglas uspešno objavljen!');
+        return redirect()->back();
+      }
 
-       //  News::create($createNews);
-
-         \Session::flash('img', 'Oglas uspešno objavljen!');
-
-         return redirect()->back();
-      
-
-    }
-
+     
     public function getLastListings()
     {
+        if(Request::ajax())
+        {
         $listings = Listings::select('id','price','name','listing','currency')->orderBy('id','desc')->limit(12)->get();
         return json_decode($listings);
+        }
     }
-
+    
+    /*
+    *Get all listings from curently Auth user and show in the view;
+    *
+    */
     public function userListing()
     {
        $user = Auth::user()->ListingToUser;

@@ -16,7 +16,7 @@ class ListingViewsController extends Controller
 
     public function singleListing($id)
     {
-    	$singleListing = Listing::findOrfail($id);
-    	return view('listing.singleListing',compact('single'));
+    	$singleListing = Listings::findOrfail($id);
+    	return view('listing.singleListing',compact('singleListing'));
     }
 }

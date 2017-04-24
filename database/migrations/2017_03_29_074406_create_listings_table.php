@@ -17,12 +17,14 @@ class CreateListingsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('kategorija');
-            $table->string('grupa');
-            $table->string('stanje');
-            $table->decimal('cena', 8, 2);
-            $table->string('naziv');
-            $table->string('oglas');
+            $table->string('category');
+            $table->string('cond');
+            $table->decimal('price', 8, 2);
+            $table->string('name');
+            $table->string('listing');
+            $table->string('phone');
+            $table->string('possibility');
+            $table->string('deal');
             $table->integer('status');
             $table->timestamps();
             $table->foreign('user_id')

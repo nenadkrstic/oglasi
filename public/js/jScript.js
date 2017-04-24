@@ -7,7 +7,7 @@ $().ready(function(){
     
     $("#welcome").toggle(10000);
 
-    $('#nekretnine,#posao,#pAuto,#racunari').mouseenter(function(){
+    $('#nekretnine,#posao,#pAuto,#racunari,#mobilni,#tvIaudio,#masine,#eAparati,#namestaj,#igracke,#odeca,#ljubimci,#muzika,#sport,#deca,#negaLica').mouseenter(function(){
          $(this).animate({ 
           'padding-top': 30,
           'padding-left': 0,
@@ -40,14 +40,14 @@ $().ready(function(){
       success:function(data){
          jQuery.each(data, function(key, value){
         
-            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/2/img1..jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>' 
+            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/2/img2..png"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>' 
               +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
          });
       }
 
    });
  }
- setTimeout(loadListings,100)
+ setTimeout(loadListings,1000)
 function register(){
 	
 				$("#myModal").modal();

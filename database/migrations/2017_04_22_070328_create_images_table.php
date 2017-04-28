@@ -16,9 +16,9 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('listing_id')->unsigned();
+            $table->integer('listings_id')->unsigned();
             $table->string('image');
-            $table->foreign('listing_id')
+            $table->foreign('listings_id')
                   ->references('id')
                   ->on('listings')
                   ->onDelete('cascade');

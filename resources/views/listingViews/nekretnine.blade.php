@@ -9,7 +9,9 @@
 		    	</div>
 		 		 <div class="media-left media-middle col-md-3">
 			    <a href="#">
-			      <img class="media-object" src="../public/uploads/2/img2..jpg" alt="..." width="200px"><hr>
+			   
+			      <img class="media-object" alt="{{$nekretnina->id}}" width="150px" src="../public/uploads/list-id-{{$nekretnina->id}}/img1..jpg" ><hr>
+			    
 			    </a>
 			</div>
 

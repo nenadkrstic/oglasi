@@ -1,7 +1,7 @@
 body{
-	margin: 0;
-	margin-top:50px;
-	background-color: #fff;
+    margin: 0;
+    margin-top:50px;
+    background-color: #fff;
     padding: 0px;
     width:100%;
     height:100%;
@@ -81,108 +81,6 @@ header, footer {
     background: #fffccc; 
 } 
 
-/*
-
-
-*/
-#nekretnine{
-    background-color: red;
-}
-
-#listingSection{
-	background-color: #FFF;
-	padding: 10px;
-}
-#listingSection h5{
-	color: #2a8fcf;
-	font-size: 18px; 
-}
-
-
-#login-nav input { margin-bottom: 15px; }
-
-#imaginary_container{
-    margin-top:20px; 
-    margin-bottom: 20px;
-}
-.stylish-input-group .input-group-addon{
-    background: white !important; 
-}
-.stylish-input-group .form-control{
-	border-right:0; 
-	box-shadow:0 0 0; 
-	border-color:#ccc;
-}
-.stylish-input-group button{
-    border:0;
-    background:transparent;
-}
-
-#getLastListings{
-	
-}
-#ajaxListing{
-	min-height: 400px;
-}
-#ajaxListing a{
-    color:#fff;
-}
-#centrall{
-    background-color: #FFF;
-}
-
-#centrall .text-center  {
-	 
-   color:#2a8fcf;
-   text-decoration: none;
-	
-	
-}
-
-#centrall a{
-	text-decoration: none;
-}
-#centrall .nav{
-	background-color: #e5e7e8;
-	border: 5px solid #2a8fcf;
-
-
-	height: 150px;
-	margin: 5px;
-
-}
-#div1{
-	
-	padding-left: 20px;
-	background-color: #FFF;
-	
-}
-
-#div2{
-	
-	padding-left: 20px;
-	background-color: #FFF;
-	
-}
-
-#div3{
-	
-	padding-left: 20px;
-	background-color: #FFF;
-	
-}
-
-#div4{
-	
-	padding-left: 20px;
-	background-color: #FFF;
-	
-}
-
-#dropzone{
-	background-color: #FFF;
-}
-
 #row {
     margin: 80px 0px 80px 0px;
     }
@@ -206,11 +104,4 @@ img:hover {
     box-shadow: 10px 10px 5px #888888;
     z-index: 1;
     }
-
-
-
-#footer{
-	margin: 0;
-    height: 300px;
-}
 

@@ -38,11 +38,6 @@ Route::get('/logout', 'PageController@logout');
 
 
 
-//midleware
 
-
-
-
-//Route::post('/makeListing1', 'PageController@makeListing1');
 
 

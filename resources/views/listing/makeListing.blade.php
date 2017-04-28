@@ -128,10 +128,14 @@
     <div class="col-md-10 ">
 		<h4 for="stanje" >Slika</h4>
 			<div class="col-md-12 ">
-			  {{ Form::file('img[]',['multiple' => 'multiple']
+			  {{ Form::file('img[]',['multiple' => 'multiple','id'=>'fileupload']
 			  ) }}<hr>
 			 </div>
+			 <div id="dvPreview">
     </div>
+
+
+ 
    
 
     

@@ -1,9 +1,11 @@
 @extends('app')
 @section('content')
-<h1>Nekretnine</h1>
+<h1 class="text-center">Moji oglasi</h1>
 	@if(isset($user))
       @foreach($user as $nekretnina)
 		    <div class="media" id="listingSection">
+		    	<a href=""><button class="btn btn-danger pull-right">Obrisi oglas</button></a>
+		    	<a href=""><button class="btn btn-success pull-right">Izmeni oglas</button></a>
 		    	<div class="col-md-12">
 		    		<h2 class="media-heading">{{$nekretnina->name}}</h2>
 		    	</div>

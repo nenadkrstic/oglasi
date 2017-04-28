@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Images;
+use App\User;
 
 class Listings extends Model
 {
@@ -25,5 +27,10 @@ class Listings extends Model
     public function userToListing()
     {
       return $this->belongsTo('Users','id');
+    }
+
+    public function image()
+    {
+      return $this->hasMany('App\Images');
     }
 }

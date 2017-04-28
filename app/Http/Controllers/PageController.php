@@ -17,6 +17,9 @@ use App\User;
 use App\Images;
 class PageController extends Controller
 {
+     /*
+    *Return view home page 
+    */
     public function home()
     {
        return view('home');
@@ -24,7 +27,7 @@ class PageController extends Controller
 
    
 
-     public function registracija()
+    public function registracija()
     {
         return view('registracija');
     }
@@ -37,7 +40,9 @@ class PageController extends Controller
         return redirect('/');
     }
 
-    //Create listing 
+    /*
+    *Return view create listing 
+    */
     public function makeListing()
     {
         return view('listing.makeListing');
@@ -60,9 +65,8 @@ class PageController extends Controller
     public function saveListing(listingRequest $request)
     {
        //Call method  insertDataListing     
-       $this->insertDataListing( $request);
-     
-        
+     $this->insertDataListing( $request);
+              
        /*
        /*check if array with image was sent
        */
@@ -80,13 +84,13 @@ class PageController extends Controller
                
                // save multiple images in file
                $file = '.' . $i->getClientOriginalExtension();
-               Image::make($i)->resize('400', '400')->save('../public/uploads/list-id-'.$id.'/img'.$count.'.'.$file);
+               Image::make($i)->resize('400', '400')->save('../public/uploads/list-id-'.$id.'/img'.$count.''.$file);
                
                 /*
                 *Create 
                 */
-                $image['listing_id'] = $id;
-                $image['image'] = 'img.'.$count.''.$file; 
+                $image['listings_id'] = $id;
+                $image['image'] = 'img'.$count.''.$file; 
                
                 Images::create($image);
 
@@ -96,11 +100,15 @@ class PageController extends Controller
 
         Session::flash('img', 'Oglas uspešno objavljen!');
         return redirect()->back();
-      }
+     }
 
-     
+    /*
+    *Check if request is ajax and return respons to home page in Json
+    *
+    */
     public function getLastListings()
     {
+
         if(Request::ajax())
         {
         $listings = Listings::select('id','price','name','listing','currency')->orderBy('id','desc')->limit(12)->get();
@@ -114,9 +122,8 @@ class PageController extends Controller
     */
     public function userListing()
     {
-       $user = Auth::user()->ListingToUser;
-
-      return view('listing.authUserListings', compact('user'));
+       $user = Auth::user()->ListingToUser()->orderBy('id','desc')->get();
+       return view('listing.authUserListings', compact('user'));
 
       
     }

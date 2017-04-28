@@ -1,3 +1,4 @@
+  
  @if(Session::has('msg'))
              <div id="welcome" class="row text-center"><h1>{{Session::get('msg')}}</h1></div>
             @endif
@@ -5,19 +6,19 @@
    <div id="centrall" class="container">
    
     <div id="div1" class="row">             
-        <a href="{{url('nekretnine')}}"> <div id="nekretnine" class="col-md-3 nav text-center">
+        <a href="{{url('nekretnine')}}"> <div id="nekretnine" class="col-md-3 nav text-center bottom">
             <h2 >Nekretnine</h2>
          </div></a>
 
-        <a href=""> <div id="posao" class="col-md-2 nav text-center">
+        <a href=""> <div id="posao" class="col-md-2 nav text-center bottom">
             <h2>Posao</h2>
          </div></a>
 
-         <a href=""><div id="pAuto"class="col-md-3 nav text-center">
+         <a href=""><div id="pAuto"class="col-md-3 nav text-center bottom">
             <h2>Polovni automobili</h2>
          </div></a>
 
-         <a href=""><div id="racunari" class="col-md-3 nav text-center">
+         <a href=""><div id="racunari" class="col-md-3 nav text-center bottom">
             <h2>Računari</h2>
          </div></a>
      </div>

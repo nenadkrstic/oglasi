@@ -33,4 +33,9 @@ class Listings extends Model
     {
       return $this->hasMany('App\Images');
     }
+
+    public function listingPaginate()
+    {
+      return $this->image->paginate(10);
+    }
 }

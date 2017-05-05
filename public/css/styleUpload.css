@@ -105,3 +105,66 @@ img:hover {
     z-index: 1;
     }
 
+#footer{
+    background-color: /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2feda7+44,2989d8+76,207cca+100,7db9e8+100 */
+background: #2feda7; /* Old browsers */
+background: -moz-linear-gradient(left, #2feda7 44%, #2989d8 76%, #207cca 100%, #7db9e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #2feda7 44%,#2989d8 76%,#207cca 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #2feda7 44%,#2989d8 76%,#207cca 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2feda7', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 */;
+    margin: 0;
+    padding: 20px;
+    list-style-: none;
+    font-size: 20px;
+
+    
+}
+#footer li{
+  list-style-type: none;
+  color: #fff;
+ 
+}
+#footer h3{
+    color: #fff;
+}
+#footer a{
+    color: #fff;
+    text-decoration: none;
+   
+}
+#footer a:hover{
+     color:gray;
+}
+
+#footerAbout{
+    border-left: 1px solid #fff;
+    color:#fff;
+    margin-right: 10px; 
+}
+
+#footerAbout a{
+    color:#fff;
+    text-decoration: none;
+}
+
+#footerAbout a:hover{
+    color:gray;
+}
+
+#footerFastLinks{
+    border-left: 1px solid #fff;
+}
+
+.contact-form{ margin-top:15px;}
+.contact-form .textarea{ min-height:220px; resize:none;}
+.form-control{ box-shadow:none; border-color:#eee; height:49px;}
+.form-control:focus{ box-shadow:none; border-color:#00b09c;}
+.form-control-feedback{ line-height:50px;}
+.main-btn{ background:#00b09c; border-color:#00b09c; color:#fff;}
+.main-btn:hover{ background:#00a491;color:#fff;}
+.form-control-feedback {
+line-height: 50px;
+top: 0px;
+}
+
+

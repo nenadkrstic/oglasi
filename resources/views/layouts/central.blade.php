@@ -1,7 +1,5 @@
   
- @if(Session::has('msg'))
-             <div id="welcome" class="row text-center"><h1>{{Session::get('msg')}}</h1></div>
-            @endif
+ 
 
    <div id="centrall" class="container">
    
@@ -10,7 +8,7 @@
             <h2 >Nekretnine</h2>
          </div></a>
 
-        <a href=""> <div id="posao" class="col-md-2 nav text-center bottom">
+        <a href="{{url('posao')}}"> <div id="posao" class="col-md-2 nav text-center bottom">
             <h2>Posao</h2>
          </div></a>
 

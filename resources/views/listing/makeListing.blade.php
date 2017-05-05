@@ -77,7 +77,7 @@
 			      <input type="radio" name="currency" value="Rsd">Rsd
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="currency" value="Euro">Euro
+			      <input type="radio" name="currency" value="Eura">Euro
 			    </label>
 			  
 			 </div>
@@ -110,7 +110,7 @@
 			<div class="col-md-6">
 			  {{ Form::select('possibility', [
 			   'zamena' => 'Zamena',
-			   'bezZamene' => 'Bez zamene',
+			   'bez zamene' => 'Bez zamene',
 			   ], null, ['class'=>'form-control']
 			  ) }}
 			 </div>

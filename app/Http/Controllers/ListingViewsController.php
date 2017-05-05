@@ -5,20 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Listings;
 use App\Images;
+use Session;
+use App\Route;
 
 
 class ListingViewsController extends Controller
 {
+
     /*
     *Return listings only for curent category and show them in the view width pagination 
     *
     */
-    public function nekretnine()
+ 
+
+    public function listingAll(Request $request)
     {
-    	$nekretnine = Listings::where('category','nekretnine')->orderBy('id','desc')->paginate(3);
-     
-        return view('listingViews.nekretnine', compact('nekretnine','img'));
+        $datas = $request->path();
+        $datas = Listings::with('image')->where('category',$datas)->orderBy('id', 'DESC')->paginate(10);
+        
+        return view('listingViews.nekretnine',compact('datas'));
     }
+    
 
     /*
     *Return single listing 
@@ -31,5 +38,12 @@ class ListingViewsController extends Controller
 
         
     	return view('listing.singleListing',compact('singleListing','singleImage'));
+    }
+
+    public function deleteAuthListing($id)
+    {
+        Listings::destroy($id);
+        Session::flash('delete','Uspešno ste obrisali oglas');
+        return redirect()->back();
     }
 }

@@ -70,7 +70,7 @@ class PageController extends Controller
        /*
        /*check if array with image was sent
        */
-       if($request->hasFile('img')){     
+           
             $img = $request->file('img');
             $id = Listings::all()->last()->id;
             $list = $request->all();
@@ -84,7 +84,7 @@ class PageController extends Controller
                
                // save multiple images in file
                $file = '.' . $i->getClientOriginalExtension();
-               Image::make($i)->resize('400', '400')->save('../public/uploads/list-id-'.$id.'/img'.$count.''.$file);
+               Image::make($i)->save('../public/uploads/list-id-'.$id.'/img'.$count.''.$file);
                
                 /*
                 *Create 
@@ -96,7 +96,7 @@ class PageController extends Controller
 
              }  
 
-       }
+       
 
         Session::flash('img', 'Oglas uspešno objavljen!');
         return redirect()->back();
@@ -122,7 +122,11 @@ class PageController extends Controller
     */
     public function userListing()
     {
-       $user = Auth::user()->ListingToUser()->orderBy('id','desc')->get();
+      $user = Auth::user()->ListingToUser()->orderBy('id','desc')->with('image')->paginate(5);
+
+
+    
+
        return view('listing.authUserListings', compact('user'));
 
       

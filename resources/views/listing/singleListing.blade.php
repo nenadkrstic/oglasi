@@ -33,24 +33,27 @@
    	@if(isset($singleListing))
        
            
-            <h1>{{$singleListing->name}}</h2><hr>
-           <h3>{{$singleListing->listing}}</h3>
-           <h3>{{$singleListing->phone}}</h3>
-             <h3>{{$singleListing->possibility}}</h3>
-               <h3>{{$singleListing->deal}}</h3>
-                <h3>{{$singleListing->created_at}}</h3> 
-                <h3>{{$singleListing->deal}}</h3>
-
+            <h1>Naziv: {{$singleListing->name}}</h2><hr>
+            <h3>Oglas: {{$singleListing->listing}}</h3>
+          
+            <h3>Mogucnost:{{$singleListing->possibility}}</h3>
+            <h3>Cena: {{$singleListing->price}} {{$singleListing->deal}}</h3>
+               
+                
+                 
+            
         <div class="container">
               <div id="row" class="row">
                   @foreach($singleImage as $image)
                       <img src="../../public/uploads/list-id-{{$singleListing->id}}/{{$image->image}}" alt="..." class="img-rounded" width="200">
                    @endforeach
              </div>
+             <h3>Telefon: {{$singleListing->phone}}</h3>
+             <h3>{{$singleListing->created_at}}</h3> 
         </div>  
      @endif
 </div>
-@include('layouts.footer')
+
 
 </body>
 </html>

@@ -1,4 +1,6 @@
 $().ready(function(){
+
+  
 	 //Handles menu drop down
     $('.dropdown-menu').find('form').click(function (e) {
         e.stopPropagation();
@@ -44,7 +46,7 @@ $().ready(function(){
       success:function(data){
          jQuery.each(data, function(key, value){
         
-            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="150px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>' 
+            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>' 
               +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
          });
       }
@@ -165,8 +167,8 @@ window.onload = function () {
                         textbox.type = 'text';
                         textbox.name = 'tag_line[]';
                         textbox.placeholder = 'Enter image tag line';
-                        img.height = "150";
-                        img.width = "150";
+                       // img.height = "200";
+                        img.width = "200";
                         img.src = e.target.result;
 
                         dvPreview.appendChild(img);
@@ -184,4 +186,27 @@ window.onload = function () {
         }
     }
 };
+function footerValidate(){
+  var name = $('#footerName').val();
+  var mail = $('#footerEmail').val();
+   var mess = $('#footerMess').val();
+    if(name == ""){
+      $('#footerNameText').html('<p>Forma sa imenom ne sme biti prazna!!!</p>');
+      $('#footerName').css({ "border": "1px solid red"});
+      return false;
 
+      }
+
+      if(mail == ""){
+        $('#footerNameText').html('<p>Forma sa mailom ne sme biti prazna!!!</p>');
+        $('#footerEmail').css({ "border": "1px solid red"});
+        return false;
+      }
+
+       if(mess == ""){
+        $('#footerNameText').html('<p>Forma sa porukom ne sme biti prazna!!!</p>');
+        $('#footerMess').css({ "border": "1px solid red"});
+        return false;
+      }
+        
+}

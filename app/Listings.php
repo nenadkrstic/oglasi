@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Images;
-use App\User;
+//use App\User;
 
 class Listings extends Model
 {
@@ -26,7 +26,7 @@ class Listings extends Model
 
     public function userToListing()
     {
-      return $this->belongsTo('Users','id');
+      return $this->belongsTo('App\User','user_id');
     }
 
     public function image()
@@ -34,8 +34,5 @@ class Listings extends Model
       return $this->hasMany('App\Images');
     }
 
-    public function listingPaginate()
-    {
-      return $this->image->paginate(10);
-    }
+   
 }

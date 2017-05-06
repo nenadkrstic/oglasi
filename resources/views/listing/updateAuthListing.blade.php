@@ -1,9 +1,36 @@
-@extends('app')
-@section('head')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
-@stop
-@section('content')
+<!DOCTYPE HTML>
+<html>
+<head>
+           <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     
+         <!-- Style -->
+        <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../public/css/styleUpload.css">
+
+       <!-- <link rel="stylesheet" type="text/css" href="../public/css/dropzone.css">-->
+        <!-- jQuery -->
+        <script src="../../public/js/app.js"></script>
+        <!-- Jscript -->
+        <script src="../../public/js/jScript.js"></script>
+        <!-- Dropzone.js -->
+       <!-- <script src="../public/js/dropzone.js"></script>-->
+   </head>
+   <body>
+   <div class="container">	
+@include('layouts.nav')
+
   <div class="container-fluid">
   @if (count($errors) > 0)
    <div class="container-fluid text-center">
@@ -17,7 +44,7 @@
 </div>
 @endif
 
-{{Form::open(['action'=>'ListingViewsController@saveListing','files' => true,'method'=>'POST','enctype'=>'multipart/form-data'])}}
+{{Form::model($listing,['method'=>'PATCH','action'=>['ListingViewsController@saveAuthListing',$listing->id]])}}<
 	
 
 <div class="col-md-5">
@@ -40,7 +67,7 @@
 			   'sport'=>'Sport',
 			   'zaDecu'=>'Za decu',
 			   'negaLica'=>'Nega lica i tela',
-			  
+			   'ostalo'=>'Ostalo',
 			   
 			   ], null, ['class'=>'form-control']
 			  ) }}
@@ -121,18 +148,11 @@
 			   'fixno' => 'Fixno',
 			   'dogovor' => 'Dogovor',
 			   ], null, ['class'=>'form-control']
-			  ) }}
+			  ) }}<br>
 			 </div>
     </div>
    
-    <div class="col-md-10 ">
-		<h4 for="stanje" >Slika</h4>
-			<div class="col-md-12 ">
-			  {{ Form::file('img[]',['multiple' => 'multiple','id'=>'fileupload']
-			  ) }}<hr>
-			 </div>
-			 <div id="dvPreview">
-    </div>
+   
 
 
  
@@ -155,4 +175,8 @@
 </div>
 </div>
 </div>
-@stop
+</div>
+
+
+</body>
+</html>

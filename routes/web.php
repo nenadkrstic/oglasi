@@ -17,12 +17,13 @@ Route::group(['middleware' => ['admin']], function () {
 
 //Middleware group Auth User
 Route::group(['middleware' => ['authUser']], function () {
-    Route::get('/makeListing', 'PageController@makeListing');
-    Route::post('saveListing', 'PageController@saveListing');
+    Route::get('/makeListing', 'ListingViewsController@makeListing');
+    Route::post('saveListing', 'ListingViewsController@saveListing');
     Route::post('fileUpload','PageController@fileUpload');
     Route::get('userListing','PageController@userListing');
     Route::get('deleteAuthListing/{id}','ListingViewsController@deleteAuthListing');
-    Route::get('updateAuthListing/{id}','ListingViewsController@updateAuthListing');
+    Route::any('updateAuthListing/{id}','ListingViewsController@updateAuthListing');
+    Route::any('saveAuthListing/{id}','ListingViewsController@saveAuthListing');
 
 });
 

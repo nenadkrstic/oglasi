@@ -106,11 +106,15 @@ header, footer {
     color: #999; 
     background: #fffccc; 
 } 
+#singleListing{
+    margin-top: 50px;
+}
 
-/*
+#singleListing p{
+    color:red;
+}
 
 
-*/
 #nekretnine{
     background-color: red;
 }

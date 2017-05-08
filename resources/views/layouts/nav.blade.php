@@ -38,6 +38,7 @@
                  
                   
                       @if(Auth::check())
+                        <li><a href="#">{{ucFirst(Auth::user()->name)}} {{Auth::user()->lname}}</a?</li>
                              
                           <li><a href="{{url('logout')}}">Odjavi se</a></li>
                       @elseif(!Auth::check())
@@ -45,6 +46,7 @@
                        
                  
                   <li class="dropdown">
+
                      <a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">Prijavi se <b class="caret"></b></a>
                      <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
                         <li>

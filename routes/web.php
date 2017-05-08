@@ -53,6 +53,7 @@ Route::get('/muzika','ListingViewsController@listingAll');
 Route::get('/sport','ListingViewsController@listingAll');
 Route::get('/zaDecu','ListingViewsController@listingAll');
 Route::get('/negaLica','ListingViewsController@listingAll');
+Route::get('search','ListingViewsController@search');
 
 Route::get('singleListing/{id}','ListingViewsController@singleListing');
 

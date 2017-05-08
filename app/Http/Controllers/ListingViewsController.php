@@ -9,6 +9,9 @@ use Session;
 use App\Route;
 use File;
 use App\User;
+use Auth;
+use Image;
+use Input;
 
 class ListingViewsController extends Controller
 {
@@ -48,7 +51,7 @@ class ListingViewsController extends Controller
         
     	return view('listing.singleListing',compact('singleListing','singleImage'));
     }
-      protected function insertDataListing(listingRequest $request)
+      protected function insertDataListing(ListingRequest $request)
     {
         /*
         /*Save data into db, table listings
@@ -62,14 +65,12 @@ class ListingViewsController extends Controller
 
     }
     
-    public function saveListing(listingRequest $request)
+    public function saveListing(ListingRequest $request)
     {
        //Call method  insertDataListing     
      $this->insertDataListing( $request);
               
-       /*
-       /*check if array with image was sent
-       */
+       
            
             $img = $request->file('img');
             $id = Listings::all()->last()->id;
@@ -135,5 +136,11 @@ class ListingViewsController extends Controller
 
 
 
+     }
+
+     public function search(Request $request)
+     {
+        $query = $request->input('search');
+        return $search = Listings::where('category','like', '%'.$query.'%')->orderBy('id', 'DESC')->paginate(10);
      }
 }

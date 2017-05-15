@@ -1,4 +1,9 @@
- 
+<div id="spinner" class="container">
+     <div class="text-center">
+          <div class="loader text-center col-md-offset-5"></div>
+    </div>
+</div>
+
 <div id = "footer" class="row">
 
        <div id="footerFastLinks" class="col-md-2 col-md-offset-2">

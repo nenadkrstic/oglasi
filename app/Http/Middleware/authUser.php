@@ -15,6 +15,7 @@ class authUser
      */
     public function handle($request, Closure $next)
     {
+         
          if ($request->user()) {
 
             if (auth()->check()) {
@@ -23,10 +24,10 @@ class authUser
 
             }
 
-        } else {
+        } 
 
             return redirect()->back();
 
-        }
+        
     }
 }

@@ -15,6 +15,18 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if ($request->user()) {
+
+            if (auth()->check() && auth()->user()->status == 9) {
+
+                return $next($request);
+
+            }
+
+        } else {
+
+            return redirect()->back();
+
+        }
     }
 }

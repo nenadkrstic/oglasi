@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use  Session;
+use App\User;
+
+
 class LoginController extends Controller
 {
     /*
@@ -19,7 +24,6 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
     /**
      * Where to redirect users after login.
      *
@@ -32,9 +36,41 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*  public function __construct()
+
+       {
+
+
+           $this->middleware('guest', ['except' => 'logout']);
+
+       }*/
+
+    public function authenticated(Request $request, $user)
+
+
+
     {
-        Session::flash('msg','Dobrodosli!!!');
-        $this->middleware('guest', ['except' => 'logout']);
+        $password = $user['password'];
+        $email = $user['email'];
+        $status = $user['status'];
+
+        if(!$status){
+            Auth::logout();
+            Session::flash('status','trenutno ste blokirani!!!');
+            return redirect()->back();
+        }elseif (Auth::attempt(['email' => $email, 'password' => $password])) {
+            Session::flash('status','Dobrodosli!!!');
+
+            return redirect()->intended('dashboard');
+        }
     }
+
+    
+
+   
+
+
+
+
 }
+

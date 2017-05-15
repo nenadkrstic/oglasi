@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\listingRequest;
 use App\Listings;
 use App\Images;
 use Session;
@@ -51,7 +52,7 @@ class ListingViewsController extends Controller
         
     	return view('listing.singleListing',compact('singleListing','singleImage'));
     }
-      protected function insertDataListing(ListingRequest $request)
+      protected function insertDataListing(listingRequest $request)
     {
         /*
         /*Save data into db, table listings
@@ -65,7 +66,7 @@ class ListingViewsController extends Controller
 
     }
     
-    public function saveListing(ListingRequest $request)
+    public function saveListing(listingRequest $request)
     {
        //Call method  insertDataListing     
      $this->insertDataListing( $request);

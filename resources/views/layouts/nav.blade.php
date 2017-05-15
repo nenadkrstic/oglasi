@@ -1,4 +1,6 @@
-
+@if(Session::has('status'))
+    <h2 class="text-center">{{Session::get('status')}}</h2>
+    @endif
 
 
  <nav class="navbar navbar-default navbar-fixed-top mega-nav">
@@ -39,7 +41,20 @@
                   
                       @if(Auth::check())
                         <li><a href="#">{{ucFirst(Auth::user()->name)}} {{Auth::user()->lname}}</a?</li>
-                             
+                           @if(Auth::user()->status == 9)
+
+                                    <li><a href="" class="dropdown-toggle" data-toggle="dropdown">Admin many</a?</li>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{url('adminDashBoard')}}">Pretrazi korisnike</a></li>
+                                            <li><a href="{{url('blockedUsers')}}">Blokirani korisnici</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">One more separated link</a></li>
+                                        </ul>
+
+                           @endif  
                           <li><a href="{{url('logout')}}">Odjavi se</a></li>
                       @elseif(!Auth::check())
                              <li><a href="{{url('register')}}">Registruj se</a></li>

@@ -19,10 +19,12 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
 
-
         if (Auth::guard($guard)->check()) {
+            
+            
             Session::flash('msg','Dobrodosli!!!');
             return redirect('/');
+          
         }
 
         return $next($request);

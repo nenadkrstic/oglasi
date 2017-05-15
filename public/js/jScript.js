@@ -1,5 +1,10 @@
 $().ready(function(){
-
+    $(document).ajaxStart(function(){
+        $("#spinner").css("display","block");
+    });
+    $(document).ajaxComplete(function(){
+        $("#spinner").css("display","none");
+    });
   
 	 //Handles menu drop down
     $('.dropdown-menu').find('form').click(function (e) {
@@ -186,6 +191,87 @@ window.onload = function () {
         }
     }
 };
+
+function validate(){
+    var price = $('#price').val();
+    var category = $('#selectCategory').val();
+    var name = $('#formName').val();
+    var listing = $('#listing').val();
+    var phone = $('#phone').val();
+
+
+    /*
+    validate category select box
+     */
+
+    if(category == ''){
+        $('#selectCategory').css('border', '2px solid #2a8fcf');
+    }else{
+        $('#selectCategory').css('border', '1px solid gray');
+    }
+
+
+    /*
+    validate price input fiels
+     */
+
+    if(price == '' ){
+
+        $('#priceErr').html('polje sa cenom ne sme biti prazno!!!');
+        $('#price').css('border','2px solid #2a8fcf');
+        return false;
+    }
+
+    var RE = /^-{0,1}\d*\.{0,1}\d+$/;
+
+    if(!(RE.test(price))){
+        $('#priceErr').html('morate upisati broj!!!');
+        return false;
+    }
+
+    /*
+    validate name input field
+     */
+    if(name == ''){
+        $('#formName').css('border','2px solid #2a8fcf');
+        $('#nameErr').html('polje sa imenom ne sme biti prazno!!!');
+        return false;
+    }
+
+    if(name.length > 100){
+        $('#formName').css('border','2px solid #2a8fcf');
+        $('#nameErr').html('U formi sa imenom mozete upisati maximum 100 karaktera uklucujuci i razmake!!!');
+        return false;
+    }
+
+    /*
+    Validate listing input field
+     */
+
+    if(listing == ''){
+        $('#listing').css('border','2px solid #2a8fcf');
+        $('#listingErr').html('polje sa oglasom ne sme biti prazno!!!');
+    }
+
+    if(listing.length > 1000){
+        $('#listing').css('border','2px solid #2a8fcf');
+        $('#listingErr').html('U formi sa oglasom mozete upisati maximum 1000 karaktera uklucujuci i razmake!!!');
+    }
+
+    /*
+     Validate phone input field
+     */
+
+    if(phone == ''){
+        $('#phone').css('border','2px solid #2a8fcf');
+        $('#phoneErr').html('polje sa telefonom ne sme biti prazno!!!');
+    }
+
+
+}
+
+
+
 function footerValidate(){
   var name = $('#footerName').val();
   var mail = $('#footerEmail').val();
@@ -210,3 +296,70 @@ function footerValidate(){
       }
         
 }
+
+function searchUsers(){
+ var search = $('#search').val();
+    $.ajax({
+  type:'GET',
+  url: "searchUsers",
+  data: {search: search},
+  success:function(data){
+    var d = jQuery.parseJSON(data);
+ $.each(d, function(key, value){
+    $('#adminSearch').append('<div class="container"><div class="col-md-3"<p>Podaci</p><hr><h3>' + value.name + '</h3><h3>' + value.lname + '</h3><h3>' + value.city + '</h3> <h3>' + value.addres + '</h3></div><button onClick="block(' + value.id + ');return false" class="btn-sm btn-danger pull-right">Blokiraj korisnika</button></div>');
+      
+     });
+   }
+});
+}
+
+
+function block(id){
+    $.ajax({
+      type:'GET',
+      url:'blockUser',
+      data:{id:id},
+      success:function(){
+          
+      }
+    });
+}
+
+function unblockUser(id){
+    $.ajax({
+        type:'get',
+        url:'unblocUser',
+        data:{id:id},
+        success:function (data) {
+            alert(data);
+        }
+    });
+}
+var num = 0;
+$(window).scroll(function() {
+    $('#spinner').hide();
+
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+        // ajax call get data from server and append to the div
+       num+=12;
+
+        $.ajax({
+            type:'GET',
+            data:{page:num},
+            url:'getlastListings',
+            success:function(data){
+                jQuery.each(data, function(key, value){
+                    $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>'
+                        +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
+                });
+            }
+
+
+
+        });
+
+
+    }
+
+
+});

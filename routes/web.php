@@ -12,7 +12,12 @@
 */
 //Middleware group for admin 
 Route::group(['middleware' => ['admin']], function () {
-    //
+    Route::get('adminDashBoard','AdminController@adminDashBoard');
+    Route::get('searchUsers','AdminController@searchUsers');
+    Route::get('blockUser','AdminController@blockUser');
+    Route::get('blockedUsers','AdminController@blockedUsers');
+    Route::get('unblocUser','AdminController@unblocUser');
+
 });
 
 //Middleware group Auth User

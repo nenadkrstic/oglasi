@@ -57,7 +57,7 @@
                             <label for="name" class="col-md-4 control-label">Broj</label>
 
                             <div class="col-md-2">
-                                <input id="prezime" type="text" class="form-control" name="num" value="{{ old('name') }}" required autofocus>
+                                <input id="number" type="number" class="form-control" name="num" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -82,7 +82,7 @@
                         </div>
 
                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Telefon</label>
+                            <label for="phone" class="col-md-4 control-label">Telefon</label>
 
                             <div class="col-md-6">
                                 <input id="grad" type="text" class="form-control" name="phone" value="{{ old('name') }}" required autofocus>

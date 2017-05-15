@@ -47,12 +47,14 @@ class PageController extends Controller
     *
     */
 
-     public function getLastListings()
+     public function getLastListings(Request $request)
     {
+
 
         if(Request::ajax())
         {
-        $listings = Listings::select('id','price','name','listing','currency')->orderBy('id','desc')->limit(12)->get();
+        $page = $_GET['page'];
+        $listings = Listings::select('id','price','name','listing','currency')->orderBy('id','desc')->limit($page, 12)->get();
         return json_decode($listings);
         }
     }

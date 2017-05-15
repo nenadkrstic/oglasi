@@ -25,15 +25,15 @@ class listingRequest extends FormRequest
     {
         return [
            
-           'category'=>'required',
-           'cond'=>'required',
+           'category'=>'required|string',
+           'cond'=>'required|string',
            'price'=>'required|integer',
-           'currency'=>'required',
-           'name'=>'required',
-           'listing'=>'required',
-           'phone'=>'required',
-           'possibility'=>'required',
-           'deal'=>'required',
+           'currency'=>'required|string',
+           'name'=>'required|string',
+           'listing'=>'required|string',
+           'phone'=>'required|string',
+           'possibility'=>'required|string',
+           'deal'=>'required|string',
           // 'status'=>'required',
            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];

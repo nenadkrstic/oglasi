@@ -17,14 +17,15 @@
 </div>
 @endif
 
-{{Form::open(['onSubmit'=>'validate();return false;','action'=>'ListingViewsController@saveListing','files' => true,'method'=>'POST','enctype'=>'multipart/form-data'])}}
-	
+{{Form::open(['onSubmit'=>'return validate();','action'=>'ListingViewsController@saveListing','files' => true,'method'=>'POST','enctype'=>'multipart/form-data'])}}
 
-<div class="col-md-5">
+<div class="container">
+    <div class="col-md-5">
 		<h4 for="kateg" class="">Kategorija</h4>
+	        <p class="text-center" id="categoryErr"></p>
 			<div class="col-md-12" >
 			  {{ Form::select('category', [
-			   ''=>'Izaberi kategoriju',
+			   ''=>'Odaberi kategoriju',
 			   'nekretnine' => 'Nekretnine',
 			   'posao' => 'Posao',
 			   'polovniAutomobili' => 'Polovni automobili',
@@ -48,13 +49,11 @@
 			 </div>
     </div> 
 
-
- 
-
-     <div class="col-md-5">
+    <div class="col-md-5">
 		<h4 for="stanje" >Stanje</h4>
 			<div class="col-md-12 ">
 			  {{ Form::select('cond', [
+
 			   'novo' => 'Novo',
 			   'kaonovo' => 'Kao novo',
 			   'polovno' => 'Polovno',
@@ -62,74 +61,84 @@
 			  ) }}
 			 </div>
     </div>
-
-     <div class="col-md-4 ">
-		<h4 for="price" >Cena</h4>
-		 <p class="text-center" id="priceErr"></p>
-			<div class="col-md-12 ">
-			  {{ Form::text('price', null, ['class'=>'form-control','id'=>'price']
-			  ) }}
-			 </div>
-    </div>
-     <div class="col-md-6 ">
-		<h4 >Valuta</h4>
-			<div class="col-md-12 ">
-
-				<label class="radio-inline">
-			      <input type="radio" name="currency" value="Rsd">Rsd
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" name="currency" value="Eura" checked>Euro
-			    </label>
-			  
-			 </div>
-
-			 </div>
-
-      <div class="col-md-10 ">
-		<h4 for="name" >Naziv Oglasa</h4>
-          <p class="text-center" id="nameErr"></p>
-			<div class="col-md-12 ">
-			  {{ Form::text('name', null, ['class'=>'form-control','id'=>'formName']
-			  ) }}
-			 </div>
-    </div>
-
-    <div class="col-md-5 ">
-		<h4 for="listing" >Oglas</h4>
-        <p id="listingErr"></p>
-			<div class="col-md-12 ">
-			  {{ Form::textarea('listing', null, ['class'=>'form-control','id'=>'listing']
-			  ) }}
-			 </div>
-    </div>
-    <div class="col-md-5 ">
-		<h4 for="phone" >Kontakt telefon</h4>
-        <p class="text-center" id="phoneErr"></p>
-			<div class="col-md-12 ">
-			  {{ Form::text('phone', null, ['class'=>'form-control','value'=>'telefon','id'=>'phone'])
-			   }}<hr>
-			 </div>
-
-			 
-			<div class="col-md-6">
-			  {{ Form::select('possibility', [
-			   'zamena' => 'Zamena',
-			   'bez zamene' => 'Bez zamene',
-			   ], null, ['class'=>'form-control']
-			  ) }}
-			 </div>
+</div>
+	  <div class="container">
 
 
-			<div class="col-md-6 ">
+		  <div class="col-md-4 ">
+			  <h4 for="price" >Cena</h4>
+			  <p class="text-center" id="priceErr"></p>
+			  <div class="col-md-12 ">
+				  {{ Form::text('price', null, ['class'=>'form-control','id'=>'price']
+                  ) }}
+			  </div>
+		  </div>
+		  <div class="col-md-6 ">
+			  <h4 >Valuta</h4>
+			  <div class="col-md-12 ">
 
-			  {{ Form::select('deal', [
-			   'fixno' => 'Fixno',
-			   'dogovor' => 'Dogovor',
-			   ], null, ['class'=>'form-control']
-			  ) }}
-			 </div>
-    </div>
+				  <label class="radio-inline">
+					  <input type="radio" name="currency" value="Rsd">Rsd
+				  </label>
+				  <label class="radio-inline">
+					  <input type="radio" name="currency" value="Eura" checked>Euro
+				  </label>
+
+			  </div>
+
+		  </div>
+	  </div>
+
+	  <div class="container">
+
+		  <div class="col-md-10 ">
+			  <h4 for="name" >Naziv Oglasa</h4>
+			  <p class="text-center" id="nameErr"></p>
+			  <div class="col-md-12 ">
+				  {{ Form::text('name', null, ['class'=>'form-control','id'=>'formName']
+                  ) }}
+			  </div>
+		  </div>
+	   </div>
+
+	  <div class="container">
+
+		  <div class="col-md-5 ">
+			  <h4 for="listing" >Oglas</h4>
+			  <p id="listingErr"></p>
+			  <div class="col-md-12 ">
+				  {{ Form::textarea('listing', null, ['class'=>'form-control','id'=>'listing']
+                  ) }}
+			  </div>
+		  </div>
+		  <div class="col-md-5 ">
+			  <h4 for="phone" >Kontakt telefon</h4>
+			  <p class="text-center" id="phoneErr"></p>
+			  <div class="col-md-12 ">
+				  {{ Form::text('phone', null, ['class'=>'form-control','value'=>'telefon','id'=>'phone'])
+                   }}<hr>
+			  </div>
+
+			  <div class="col-md-6">
+				  {{ Form::select('possibility', [
+                   'zamena' => 'Zamena',
+                   'bez zamene' => 'Bez zamene',
+                   ], null, ['class'=>'form-control']
+                  ) }}
+			  </div>
+
+			  <div class="col-md-6 ">
+
+				  {{ Form::select('deal', [
+                   'fixno' => 'Fixno',
+                   'dogovor' => 'Dogovor',
+                   ], null, ['class'=>'form-control']
+                  ) }}
+			  </div>
+	  </div>
+
+
+</div>
    
     <div class="col-md-10 ">
 		<h4 for="img" >Slika</h4>

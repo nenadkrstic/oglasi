@@ -1,33 +1,35 @@
+
 $().ready(function(){
-    $(document).ajaxStart(function(){
-        $("#spinner").css("display","block");
+    $('.carousel').carousel({
+        interval: false
     });
-    $(document).ajaxComplete(function(){
-        $("#spinner").css("display","none");
-    });
-  
+
 	 //Handles menu drop down
     $('.dropdown-menu').find('form').click(function (e) {
         e.stopPropagation();
     });
 
-    
+
     $("#welcome").toggle(10000);
 
     $('#nekretnine,#posao,#pAuto,#racunari,#mobilni,#tvIaudio,#masine,#eAparati,#namestaj,#igracke,#odeca,#ljubimci,#muzika,#sport,#deca,#negaLica').mouseenter(function(){
-         $(this).animate({ 
+         $(this).animate({
           'padding-top': 30,
           'padding-left': 0,
           'opacity': 0.5,
           'margin': 0,
           'margin-right': 10,
+           'border-radius': 15
+
            }, 500);
     }).mouseleave(function(){
-         $(this).animate({ 
+         $(this).animate({
+          'border-radius': 0,
           'padding': 0,
           'opacity': 1,
-          'margin': 5,
-           }, 500);
+          'margin': 5
+
+           }, 1000);
     });
 
    //Hover Menu in Header
@@ -39,8 +41,8 @@ $().ready(function(){
          $('.darkness').stop(true, true).delay(200).fadeOut();
     });
 
-   
-   
+
+
 
 });
 
@@ -51,25 +53,17 @@ $().ready(function(){
       success:function(data){
          jQuery.each(data, function(key, value){
         
-            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>' 
+            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/' + value.image + '"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>'
               +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
          });
       }
 
    });
+
+
  }
- setTimeout(loadListings,1000)
-function register(){
-	
-				$("#myModal").modal();
-				$("#form").html("<label name='name'>Update article name:</label>"
-				 + "<input id='updateName'type='text' name='ime' class='form-control' value=''><br>"
-				 + "<label name='desc'>Update article description</label>"
-				 + "<input id='updateArt'type='text' name='prezime' class='form-control' value=''>");
-				
-				
-				
-}
+ //setTimeout(loadListings,1000)
+
 
 
 /*function login(){
@@ -92,7 +86,7 @@ function register(){
 	return false;
 }*/
 
-
+/*
 var colors = new Array(
   [62,35,255],
   [60,255,60],
@@ -152,7 +146,7 @@ var color2 = "rgb("+r2+","+g2+","+b2+")";
   }
 }
 
-setInterval(updateGradient,10);
+setInterval(updateGradient,10);*/
 
 
 window.onload = function () {
@@ -193,7 +187,7 @@ window.onload = function () {
 };
 
 function validate(){
-    var price = $('#price').val();
+   var price = $('#price').val();
     var category = $('#selectCategory').val();
     var name = $('#formName').val();
     var listing = $('#listing').val();
@@ -205,9 +199,9 @@ function validate(){
      */
 
     if(category == ''){
+        $('#categoryErr').html('Kategorija mora biti odabrana !!!');
         $('#selectCategory').css('border', '2px solid #2a8fcf');
-    }else{
-        $('#selectCategory').css('border', '1px solid gray');
+        return false;
     }
 
 
@@ -251,11 +245,13 @@ function validate(){
     if(listing == ''){
         $('#listing').css('border','2px solid #2a8fcf');
         $('#listingErr').html('polje sa oglasom ne sme biti prazno!!!');
+        return false;
     }
 
     if(listing.length > 1000){
         $('#listing').css('border','2px solid #2a8fcf');
         $('#listingErr').html('U formi sa oglasom mozete upisati maximum 1000 karaktera uklucujuci i razmake!!!');
+        return false;
     }
 
     /*
@@ -265,6 +261,7 @@ function validate(){
     if(phone == ''){
         $('#phone').css('border','2px solid #2a8fcf');
         $('#phoneErr').html('polje sa telefonom ne sme biti prazno!!!');
+        return false;
     }
 
 
@@ -273,13 +270,14 @@ function validate(){
 
 
 function footerValidate(){
-  var name = $('#footerName').val();
-  var mail = $('#footerEmail').val();
-   var mess = $('#footerMess').val();
-    if(name == ""){
-      $('#footerNameText').html('<p>Forma sa imenom ne sme biti prazna!!!</p>');
-      $('#footerName').css({ "border": "1px solid red"});
-      return false;
+      var name = $('#footerName').val();
+      var mail = $('#footerEmail').val();
+      var mess = $('#footerMess').val();
+
+     if(name == ""){
+          $('#footerNameText').html('<p>Forma sa imenom ne sme biti prazna!!!</p>');
+          $('#footerName').css({ "border": "1px solid red"});
+          return false;
 
       }
 
@@ -300,17 +298,17 @@ function footerValidate(){
 function searchUsers(){
  var search = $('#search').val();
     $.ajax({
-  type:'GET',
-  url: "searchUsers",
-  data: {search: search},
-  success:function(data){
+    type:'GET',
+    url: "searchUsers",
+    data: {search: search},
+    success:function(data){
     var d = jQuery.parseJSON(data);
- $.each(d, function(key, value){
-    $('#adminSearch').append('<div class="container"><div class="col-md-3"<p>Podaci</p><hr><h3>' + value.name + '</h3><h3>' + value.lname + '</h3><h3>' + value.city + '</h3> <h3>' + value.addres + '</h3></div><button onClick="block(' + value.id + ');return false" class="btn-sm btn-danger pull-right">Blokiraj korisnika</button></div>');
-      
-     });
+        $.each(d, function(key, value){
+        $('#adminSearch').append('<div class="container"><div class="col-md-3"<p>Podaci</p><hr><h3>' + value.name + '</h3><h3>' + value.lname + '</h3><h3>' + value.city + '</h3> <h3>' + value.addres + '</h3></div><button onClick="block(' + value.id + ');return false" class="btn-sm btn-danger pull-right">Blokiraj korisnika</button></div>');
+
+         });
    }
-});
+ });
 }
 
 
@@ -335,11 +333,18 @@ function unblockUser(id){
         }
     });
 }
+
 var num = 0;
+var blok = 0;
 $(window).scroll(function() {
-    $('#spinner').hide();
+  //  $('#spinner').hide();
+    $('#text').fadeIn(5000);
 
     if($(window).scrollTop() == $(document).height() - $(window).height()) {
+    blok++;
+    if(blok > 3){
+        return false;
+    }
         // ajax call get data from server and append to the div
        num+=12;
 
@@ -348,10 +353,13 @@ $(window).scroll(function() {
             data:{page:num},
             url:'getlastListings',
             success:function(data){
+
                 jQuery.each(data, function(key, value){
                     $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>'
                         +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
+
                 });
+
             }
 
 
@@ -363,3 +371,4 @@ $(window).scroll(function() {
 
 
 });
+

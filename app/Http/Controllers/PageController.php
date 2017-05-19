@@ -54,8 +54,13 @@ class PageController extends Controller
         if(Request::ajax())
         {
         $page = $_GET['page'];
-        $listings = Listings::select('id','price','name','listing','currency')->orderBy('id','desc')->limit($page, 12)->get();
-        return json_decode($listings);
+        $listings = Listings::with('listingImage')->select('id','price','name','listing','currency')->orderBy('id','desc')->limit($page, 12)->get();
+
+       if($listings) {
+           return json_decode($listings);
+       }else{
+           return json_encode('Ucitani su svi oglasi');
+       }
         }
     }
 
@@ -65,7 +70,8 @@ class PageController extends Controller
     */
     public function userListing()
     {
-      $user = Auth::user()->ListingToUser()->orderBy('id','desc')->with('image')->paginate(5);
+           $user = Auth::user()->ListingToUser()->orderBy('id','desc')->with('listingImage')->get();
+
       return view('listing.authUserListings', compact('user'));
     }
 

@@ -56,7 +56,7 @@ class LoginController extends Controller
 
         if(!$status){
             Auth::logout();
-            Session::flash('status','trenutno ste blokirani!!!');
+            Session::flash('status','Blokirani ste od strane administratora, molimo javite se putem forme!!!');
             return redirect()->back();
         }elseif (Auth::attempt(['email' => $email, 'password' => $password])) {
             Session::flash('status','Dobrodosli!!!');

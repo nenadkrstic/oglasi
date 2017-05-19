@@ -1,4 +1,5 @@
 body{
+    z-index: 999;
 	margin: 0;
 	margin-top:50px;
 	background-color: #fff;
@@ -7,7 +8,30 @@ body{
     height:100%;
     font-family: sans-serif;
     font-size:14px;
- } 
+ }
+#text{
+    background-color: /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2feda7+44,2989d8+76,207cca+100,7db9e8+100 */
+    background: #2feda7; /* Old browsers */
+    background: -moz-linear-gradient(left, #2feda7 44%, #2989d8 76%, #207cca 100%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #2feda7 44%,#2989d8 76%,#207cca 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #2feda7 44%,#2989d8 76%,#207cca 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2feda7', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 */;
+    color:#FFF;
+    height: 100px;
+    padding-top: 30px;
+    border-radius:30px 30px 30px 0;
+}
+
+.loader {
+
+    position: fixed;
+    top:300px;
+    margin:auto;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+
+}
  #register{
     margin-top: 50px;
  }
@@ -114,6 +138,9 @@ header, footer {
     height: 100%;
     width: 100%;
     z-index: 5;
+}
+.MainMenuRight li{
+    border-left:1px solid rgba(255, 255, 255, 0.5);
 }
 
 .btn-default {
@@ -278,7 +305,9 @@ background: -moz-linear-gradient(left, #2feda7 44%, #2989d8 76%, #207cca 100%, #
 background: -webkit-linear-gradient(left, #2feda7 44%,#2989d8 76%,#207cca 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to right, #2feda7 44%,#2989d8 76%,#207cca 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2feda7', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 */;
-	margin: 0;
+
+    margin-top:20px;
+    margin: 0;
     padding: 20px;
     list-style-: none;
     font-size: 20px;
@@ -333,3 +362,41 @@ line-height: 50px;
 top: 0px;
 }
 
+
+/* Main carousel style */
+.carousel {
+    width: 600px;
+}
+
+/* Indicators list style */
+.article-slide .carousel-indicators {
+    bottom: 0;
+    left: 0;
+    margin-left: 5px;
+    width: 100%;
+}
+/* Indicators list style */
+.article-slide .carousel-indicators li {
+    border: medium none;
+    border-radius: 0;
+    float: left;
+    height: 54px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 5px !important;
+    margin-top: 0;
+    width: 100px;
+}
+/* Indicators images style */
+.article-slide .carousel-indicators img {
+    border: 2px solid #FFFFFF;
+    float: left;
+    height: 54px;
+    left: 0;
+    width: 100px;
+}
+/* Indicators active image style */
+.article-slide .carousel-indicators .active img {
+    border: 2px solid #428BCA;
+    opacity: 0.7;
+}

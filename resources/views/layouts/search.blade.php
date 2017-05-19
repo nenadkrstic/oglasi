@@ -1,3 +1,14 @@
+@if (count($errors) > 0)
+<div class="container-fluid text-center">
+    <div class="row alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+@endif
 <form action="{{url('search')}}" mrthod="GET">
 <div class="container">
 	<div class="container-fluid">

@@ -44,11 +44,12 @@
 </div>
 @endif
 
-{{Form::model($listing,['method'=>'PATCH','action'=>['ListingViewsController@saveAuthListing',$listing->id]])}}<
+{{Form::model($listing,['onSubmit'=>'validate();return false;','method'=>'PATCH','action'=>['ListingViewsController@saveAuthListing',$listing->id]])}}
 	
 
 <div class="col-md-5">
 		<h4 for="kateg" class="">Kategorija</h4>
+			<p class="text-center" id="categoryErr"></p>
 			<div class="col-md-12">
 			  {{ Form::select('category', [
 			   'nekretnine' => 'Nekretnine',
@@ -69,7 +70,7 @@
 			   'negaLica'=>'Nega lica i tela',
 			   'ostalo'=>'Ostalo',
 			   
-			   ], null, ['class'=>'form-control']
+			   ], null, ['class'=>'form-control','id'=>'selectCategory']
 			  ) }}
 			 </div>
     </div> 
@@ -91,8 +92,9 @@
 
      <div class="col-md-4 ">
 		<h4 for="stanje" >Cena</h4>
+		 <p class="text-center" id="priceErr"></p>
 			<div class="col-md-12 ">
-			  {{ Form::text('price', null, ['class'=>'form-control']
+			  {{ Form::text('price', null, ['class'=>'form-control','id'=>'price']
 			  ) }}
 			 </div>
     </div>
@@ -104,7 +106,7 @@
 			      <input type="radio" name="currency" value="Rsd">Rsd
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="currency" value="Eura">Euro
+			      <input type="radio" name="currency" value="Eura" checked>Euro
 			    </label>
 			  
 			 </div>

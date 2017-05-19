@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\listingRequest;
+use App\Http\Requests\SearchFormRequest;
 use App\Listings;
 use App\Images;
 use Session;
@@ -26,7 +27,7 @@ class ListingViewsController extends Controller
     public function listingAll(Request $request)
     {
         $datas = $request->path();
-        $datas = Listings::with('image')->where('category',$datas)->orderBy('id', 'DESC')->paginate(10);
+        $datas = Listings::with('image')->where('category',$datas)->orderBy('id', 'DESC')->paginate(20);
         
         return view('listingViews.nekretnine',compact('datas'));
     }
@@ -68,7 +69,9 @@ class ListingViewsController extends Controller
     
     public function saveListing(listingRequest $request)
     {
-       //Call method  insertDataListing     
+       /*
+        * Call method  insertDataListing
+        */
      $this->insertDataListing( $request);
               
        
@@ -77,19 +80,23 @@ class ListingViewsController extends Controller
             $id = Listings::all()->last()->id;
             $list = $request->all();
                 
-             //Create directory for new listing and put uploaded images from array at same dir.  
+             /*
+              * Create directory for new listing and put uploaded images from array at same dir.
+              */
             File::makeDirectory('../public/uploads/list-id-'.$id);
                  
             $count = 0;
             foreach ($img as $i) {
                $count++;
                
-               // save multiple images in file
+               /*
+                * save multiple images in file
+                */
                $file = '.' . $i->getClientOriginalExtension();
                Image::make($i)->save('../public/uploads/list-id-'.$id.'/img'.$count.''.$file);
                
                 /*
-                *Create 
+                *Create image
                 */
                 $image['listings_id'] = $id;
                 $image['image'] = 'img'.$count.''.$file; 
@@ -118,30 +125,25 @@ class ListingViewsController extends Controller
         return redirect()->back();
     }
 
-    public function updateAuthListing($id)
+    public function updateAuthListing($id, Request $request)
     {   
         $listing = Listings::findOrFail($id);
-        
         return view('listing.updateAuthListing', compact('listing'));
     }
 
      public function saveAuthListing($id, Request $request){
 
-       $updateListing = Listings::findOrFail($id);
+        $updateListing = Listings::findOrFail($id);
+        $updateListing->update($request->All());
+        \Session::flash('status','Oglas je uspesno promenjen');
+         return redirect('/');
+      }
 
-         $updateListing->update($request->All());
-
-        // \Session::flash('status','Vest je uspesno promenjea');
-
-        return redirect('/');
-
-
-
-     }
-
-     public function search(Request $request)
+     public function search(SearchFormRequest $request)
      {
         $query = $request->input('search');
-        return $search = Listings::where('category','like', '%'.$query.'%')->orderBy('id', 'DESC')->paginate(10);
+        $search = Listings::where('category','like', '%'.$query.'%')->orWhere('name','like', '%'.$query.'%')->orderBy('id', 'DESC')->paginate(20);
+        $number = count($search);
+        return view('listingViews.searchListings',compact('search','query','number'));
      }
 }

@@ -6,7 +6,7 @@
       @foreach($datas as $data)
 
       <div id="listingSection" class="media">
-		    <div class="media-left">
+		    <div class=" col-md-3">
 				     <a href="#">
 						 <img class="media-object" src="../public/uploads/list-id-{{$data->id}}/img1.jpg" alt="..." width="200px">
 

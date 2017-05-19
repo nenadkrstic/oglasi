@@ -31,9 +31,9 @@
 
 
 
-
+<!--Baners-->
   <div class="col-md-2">
-            <div class="sidebar-nav-fixed pull-right affix">
+            <div class="sidebar-nav-scroll affix ">
                 <div class="well">
                     
                    <iframe src="http://kursna-lista.com/gedzeti/gadget1white.php" frameborder="0" height="200" scrolling="no" width="110"></iframe>
@@ -46,19 +46,8 @@
         <!--/span-->
     </div>
 
-      <div class="col-md-2 pull-right">
-            <div class="sidebar-nav-fixed pull-left affix">
-                <div class="well">
-                    
-                   <iframe src="http://kursna-lista.com/gedzeti/gadget1white.php" frameborder="0" height="200" scrolling="no" width="110"></iframe>
-                </div>
 
-                
-            </div>
-            <!--/sidebar-nav-fixed -->
-        </div>
-        <!--/span-->
-    </div>
+
            
        
         <div class="container">

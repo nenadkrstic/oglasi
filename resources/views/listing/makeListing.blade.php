@@ -30,7 +30,7 @@
 			   'posao' => 'Posao',
 			   'polovniAutomobili' => 'Polovni automobili',
 			   'racunari'=>'Računari',
-			   'mobilni'=>'Mobilni telefoni',
+			   'mobilniTelefoni'=>'Mobilni telefoni',
 			   'tvIaudio'=>'Tv i audio',
 			   'masineIalati'=>'Mašine i alati',
 			   'elAparati'=>'Električni aparati',

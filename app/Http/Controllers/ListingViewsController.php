@@ -26,10 +26,10 @@ class ListingViewsController extends Controller
 
     public function listingAll(Request $request)
     {
-        $datas = $request->path();
-        $datas = Listings::with('image')->where('category',$datas)->orderBy('id', 'DESC')->paginate(20);
+        $data = $request->path();
+        $datas = Listings::with('listingImage')->where('category',$data)->orderBy('id', 'DESC')->paginate(20);
         
-        return view('listingViews.nekretnine',compact('datas'));
+        return view('listingViews.'.$data,compact('datas'));
     }
 
     /*
@@ -47,7 +47,7 @@ class ListingViewsController extends Controller
     */
     public function singleListing($id)
     {
-    	$singleImage = Listings::findOrfail($id)->image;
+        $singleImage = Listings::findOrfail($id)->listingImage;
         $singleListing = Listings::findOrfail($id);
 
         
@@ -108,7 +108,7 @@ class ListingViewsController extends Controller
        
 
         Session::flash('img', 'Oglas uspešno objavljen!');
-        return redirect()->back();
+        return redirect('/');
      }
 
     

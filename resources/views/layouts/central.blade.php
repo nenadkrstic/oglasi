@@ -18,7 +18,7 @@ $('body').css({'opacity':'1','background-color':'white'});
 @endif
    <div id="centrall" class="container">
    
-    <div id="div1" class="row">             
+    <div id="div1" class="container">
         <a href="{{url('nekretnine')}}"> <div id="nekretnine" class="col-md-3 nav text-center bottom">
             <h2 >Nekretnine</h2>
          </div></a>
@@ -37,8 +37,8 @@ $('body').css({'opacity':'1','background-color':'white'});
      </div>
 
 
-<div id="div2" class="row">
-     <a href="mobilni"><div id="mobilni" class="col-md-4 nav text-center">
+<div id="div2" class="container">
+     <a href="mobilniTelefoni"><div id="mobilni" class="col-md-4 nav text-center">
         <h2>Mobilni telefoni</h2>
      </div></a>
 
@@ -59,7 +59,7 @@ $('body').css({'opacity':'1','background-color':'white'});
       
  </div>
 
-<div id="div3" class="row">
+<div id="div3" class="container">
     
     <a href="namestaj"><div id="namestaj" class="col-md-3 nav text-center">
         <h2>Nameštaj</h2>
@@ -79,7 +79,7 @@ $('body').css({'opacity':'1','background-color':'white'});
       
  </div>
 
-    <div id="div4" class="row">
+    <div id="div4" class="container">
 
          <a href="muzika"><div id="muzika" class="col-md-2 nav text-center">
             <h2>Muzika</h2>

@@ -21,6 +21,17 @@ body{
     padding-top: 30px;
     border-radius:30px 30px 30px 0;
 }
+.baner{ margin-bottom: 15px;}
+.baner h2{
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    top: 20px ;
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    left:100px;
+
+}
 
 .loader {
 
@@ -203,6 +214,7 @@ header, footer {
     color:#fff;
 }
 #centrall{
+    padding-left:30px;
     background-color: #FFF;
 }
 
@@ -262,25 +274,26 @@ header, footer {
     margin: 80px 0px 80px 0px;
     }
 
-img {
+/*img {
     margin: 10px 10px 10px 10px;
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     transform: scale(1, 1);
     transition-duration: 0.3s;
     -webkit-transition-duration: 0.3s; /* Safari */
-    }
+  /*  }*/
 
-img:hover {
+
+/*img:hover {
     cursor: pointer;
     -webkit-transform: scale(2, 2);
     -ms-transform: scale(2, 2);
     transform: scale(2, 2);
     transition-duration: 0.3s;
     -webkit-transition-duration: 0.3s; /* Safari */
-    box-shadow: 10px 10px 5px #888888;
+  /*  box-shadow: 10px 10px 5px #888888;
     z-index: 1;
-    }
+    }*/
 
 
 .loader {

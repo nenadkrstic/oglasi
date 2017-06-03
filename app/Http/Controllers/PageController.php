@@ -56,11 +56,11 @@ class PageController extends Controller
         $page = $_GET['page'];
         $listings = Listings::with('listingImage')->select('id','price','name','listing','currency')->orderBy('id','desc')->limit($page, 12)->get();
 
-       if($listings) {
-           return json_decode($listings);
-       }else{
-           return json_encode('Ucitani su svi oglasi');
-       }
+           if($listings) {
+               return json_decode($listings);
+           }else{
+               return json_encode('Ucitani su svi oglasi');
+           }
         }
     }
 

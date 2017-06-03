@@ -24,7 +24,7 @@ class SearchFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'search'=>'required|min:3,max:10,string'
+            'search'=>'required|string'
         ];
     }
 }

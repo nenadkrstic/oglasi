@@ -68,11 +68,7 @@
                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
                                                 <input type="password" id="pass" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                                             </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Remember me
-                                                </label>
-                                            </div>
+
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-primary btn-block"  value="Login">
                                             </div>

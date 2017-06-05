@@ -19,7 +19,7 @@ $().ready(function(){
           'opacity': 0.5,
           'margin': 0,
           'margin-right': 10,
-           'border-radius': 15
+
 
            }, 500);
     }).mouseleave(function(){
@@ -53,7 +53,7 @@ $().ready(function(){
       success:function(data){
          jQuery.each(data, function(key, value){
         
-            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/' + value.image + '"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>'
+            $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/' + value.image + '"   width="180px" alt=' + value.name + ' class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>'
               +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
          });
       }
@@ -355,8 +355,8 @@ $(window).scroll(function() {
             success:function(data){
 
                 jQuery.each(data, function(key, value){
-                    $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="180px" alt="" class="img-thumbnail"><h3>Naziv:'+ value.name +'</h3>'
-                        +  '<h4>Cena:'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
+                    $('#getLastListings').append('<a href=singleListing/' + value.id + '><div id="ajaxListing" class="col-md-3"><img src="../public/uploads/list-id-' + value.id + '/img1.jpg"   width="180px" alt="" class="img-thumbnail"><h3>'+ value.name +'</h3>'
+                        +  '<h4>'+value.price+ '. ' +value.currency+ '</h4><hr></div></a>');
 
                 });
 

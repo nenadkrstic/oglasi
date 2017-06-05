@@ -24,12 +24,22 @@ body{
 .baner{ margin-bottom: 15px;}
 .baner h2{
     position: absolute;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
-    top: 20px ;
+    bottom: 20px ;
     color: #fff;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    left:100px;
+    font-family:"Yu Gothic";
+    left:20px;
+
+}
+.baner h5{
+    position: absolute;
+    font-size: 15px;
+
+    bottom: 5px ;
+    color: #fff;
+    font-family: "Yu Gothic";
+    left:20px;
 
 }
 
@@ -205,7 +215,10 @@ header, footer {
 }
 
 #getLastListings{
-	
+	margin-top:20px;
+}
+#baner2{
+    margin-bottom: 20px;
 }
 #ajaxListing{
 	min-height: 400px;

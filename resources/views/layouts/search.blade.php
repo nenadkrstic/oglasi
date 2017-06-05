@@ -32,13 +32,19 @@
 </div>  </form>
 
 <div  class="container text-center baner">
-    <div  class="col-md-6">
-        <img src="../public/baners/nails.jpg" class="img-responsive" alt="Aleksandra nails 066/32-61-90">
-        <h2 >Aleksandra nails</h2>
+
+    <div class="row">
+      <a href="http://www.mihailovic.rs/">  <div class="col-md-4">
+            <img src="../public/baners/BCSMihailovic1.JPG" alt="Mihajlovic bosh" class=" img-responsive" >
+          </div></a>
+
+       <a href="https://www.facebook.com/aleksandra.milosavljevic.501"> <div  class="col-md-4 baner" >
+            <img src="../public/baners/nails.jpg" class="img-thumbnail img-responsive" alt="Aleksandra nails 066/32-61-90">
+            <h2 >Aleksandra nails</h2>
+            <h5>Tel 064/32-61-900</h5>
+        </div></a>
+
+
     </div>
 
-    <div class="col-md-6  baner">
-        <a href="http://www.obucacvrcak.com"><img src="../public/baners/cvrcak.jpg" class="img-responsive"> </a>
-        <h2 >Obuća cvrčak</h2>
-    </div>
 </div>

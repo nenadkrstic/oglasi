@@ -104,7 +104,22 @@ $('body').css({'opacity':'1','background-color':'white'});
    <div class="col-lg-pull-6 col-md-pull-5 col-xs-pull-5  col-md-pull-5 loader"></div>
 
 
-   <div id="getLastListings" class="row text-center"><h1 id="text"><strong>Najnoviji oglasi</strong></h1></div>
+   <div id="getLastListings" class="container text-center">
+
+<div class="row" id="baner2">
+       <div class="col-md-3  baner">
+           <a href="http://www.obucacvrcak.com"><img src="../public/baners/cvrcak.jpg" class="img img-thumbnail img-responsive"> </a>
+           <h2>Obuća cvrčak</h2>
+           <h5>www.obucacvrcak.com</h5>
+
+       </div>
+
+       <div class="col-md-5">
+           <img src="../public/baners/scMihajlovic.JPG" alt="MihajlovicSC" class="img-thumbnail img-responsive">
+       </div>
+
+</div>
+   </div>
 
 
 
